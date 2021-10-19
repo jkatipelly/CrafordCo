@@ -1,0 +1,36 @@
+﻿@using CrafordCo.Data.Entities;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+   
+    @{ 
+
+        var lossTypes = (IEnumerable<LossType>)ViewData["LossTypes"];
+        @if (lossTypes.Any())
+        { 
+            <table>
+                <thead>
+                    <tr>
+                        <th>Loss Type ID</th>
+                        <th>LossType Code</th>
+                        <th>Loss Type Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var losstype in lossTypes)
+                    {
+                        <tr>
+                            <td>@losstype.LossTypeID</td>
+                            <td>@losstype.LossTypeCode</td>
+                            <td>@losstype.LossTypeDescription</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }           
+        
+    }
+
+</div>
